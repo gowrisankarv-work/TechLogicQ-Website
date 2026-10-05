@@ -1,6 +1,7 @@
 // import { ArrowRight } from "lucide-react";
 // import ButtonLink from "@/components/ButtonLink";
 // import CourseCard from "@/components/CourseCard";
+import type { Metadata } from "next";
 import FeatureCard from "@/components/FeatureCard";
 import Hero from "@/components/Hero";
 import SectionHeader from "@/components/SectionHeader";
@@ -8,9 +9,16 @@ import LearnBuildGrow from "@/components/sections/LearnBuildGrow";
 import SocialSection from "@/components/sections/SocialSection";
 import WhyTechLogicQ from "@/components/sections/WhyTechLogicQ";
 import { coreOfferings } from "@/data/content";
+import { siteConfig } from "@/lib/site";
 // import { courses } from "@/data/content"; // used by the hidden Academy preview
 
 const accents = ["blue", "orange", "navy", "blue"] as const;
+
+export const metadata: Metadata = {
+  title: `${siteConfig.name} | ${siteConfig.message}`,
+  description: siteConfig.description,
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   return (
