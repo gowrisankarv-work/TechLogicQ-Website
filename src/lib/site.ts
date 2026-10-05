@@ -23,7 +23,7 @@ export const siteConfig = {
   // Placeholders: point these at the official TechLogicQ profiles.
   social: [
     { name: "Instagram", href: "https://www.instagram.com/techlogicq?stkn=MWh6Y3Y3M3BpemF4NQ==" },
-    { name: "LinkedIn", href: "https://www.linkedin.com/" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/kavin-adithya-sr-a8a17024a/" },
     // { name: "YouTube", href: "https://www.youtube.com/" },
   ],
 } as const;
