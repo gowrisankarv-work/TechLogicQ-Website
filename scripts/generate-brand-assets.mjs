@@ -10,12 +10,6 @@ const ICON_PATHS = `
   <path fill="#22D3EE" d="M79.2 20.4A44 44 0 0 1 100.3 77.6L116.5 93.9 105.2 105.2 79.8 79.8A28 28 0 0 0 72.2 34.8Z" />
 `;
 
-const ICON_PATHS_MONO = `
-  <path fill="#FFFFFF" d="M84.6 96.4A44 44 0 0 1 17.5 71.3L32.9 67.2A28 28 0 0 0 75.6 83.2Z" />
-  <path fill="#FFFFFF" d="M16.1 63A44 44 0 0 1 71.3 17.5L67.2 32.9A28 28 0 0 0 32 61.9Z" />
-  <path fill="#22D3EE" d="M79.2 20.4A44 44 0 0 1 100.3 77.6L116.5 93.9 105.2 105.2 79.8 79.8A28 28 0 0 0 72.2 34.8Z" />
-`;
-
 function transparentIconSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 15 105 92">${ICON_PATHS}</svg>`;
 }
@@ -23,7 +17,7 @@ function transparentIconSvg() {
 function appIconSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
     <rect width="120" height="120" rx="27" fill="#0A0F2C" />
-    <g transform="translate(15.73,13.73) scale(0.7045)">${ICON_PATHS_MONO}</g>
+    <g transform="translate(15.73,13.73) scale(0.7045)">${ICON_PATHS}</g>
   </svg>`;
 }
 
