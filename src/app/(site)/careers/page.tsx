@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import JobCard from "@/components/JobCard";
 import { jobStore } from "@/lib/jobs/store";
 import { pageMetadata } from "@/lib/metadata";
+import { contactHref } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Job Openings",
@@ -37,7 +38,7 @@ export default async function CareersPage() {
               </span>
               <h2 className="mt-5 text-xl font-bold">No openings right now</h2>
               <p className="mt-2 text-muted">New opportunities will be posted here. Please check back soon.</p>
-              <ButtonLink href="/contact?subject=Job%20updates" variant="secondary" className="mt-6">
+              <ButtonLink href={contactHref("Job updates", "career")} variant="secondary" className="mt-6">
                 Contact Us
               </ButtonLink>
             </div>

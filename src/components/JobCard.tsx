@@ -7,7 +7,8 @@ import Reveal from "./Reveal";
 type JobCardProps = { job: Job; delay?: number };
 
 function applyTarget(job: Job) {
-  if (!job.applyLink) return { href: contactHref(`Job application: ${job.title} at ${job.company}`), external: false };
+  if (!job.applyLink)
+    return { href: contactHref(`Job application: ${job.title} at ${job.company}`, "career"), external: false };
   if (isEmail(job.applyLink)) {
     const subject = encodeURIComponent(`Application: ${job.title}`);
     return { href: `mailto:${job.applyLink}?subject=${subject}`, external: false };

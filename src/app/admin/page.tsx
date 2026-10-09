@@ -38,7 +38,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
           </div>
           <Link
             href="/admin/jobs/new"
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-accent-500 px-5 font-semibold text-white hover:bg-accent-600"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-accent-500 px-5 font-semibold text-navy-900 hover:bg-accent-600"
           >
             <Plus className="h-5 w-5" aria-hidden />
             Add job opening

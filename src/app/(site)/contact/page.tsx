@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata = pageMetadata({
   title: "Contact Us",
   description:
-    "Get in touch with TechLogicQ about training, academy courses, web development services or career opportunities.",
+    "Get in touch with TechLogicQ about training, web development and software services, our products, or career opportunities.",
   path: "/contact",
 });
 
@@ -26,7 +26,7 @@ export default function ContactPage() {
       <Hero
         eyebrow="Contact Us"
         title="Let's Talk"
-        description="Questions about training, courses, a web project or career opportunities? Send us a message and we'll get back to you."
+        description="Questions about training, a web or software project, our products, or career opportunities? Send us a message and we'll get back to you."
       />
 
       <section className="pb-20 pt-4 sm:pt-8">
@@ -61,7 +61,7 @@ export default function ContactPage() {
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/10 px-4 text-sm font-medium transition hover:bg-accent-500"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/10 px-4 text-sm font-medium text-white transition hover:bg-accent-500 hover:text-navy-900"
                     >
                       <SocialIcon name={s.name} className="h-4 w-4" />
                       {s.name}

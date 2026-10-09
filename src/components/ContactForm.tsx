@@ -3,7 +3,7 @@
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { validateContact, type ContactErrors, type ContactPayload } from "@/lib/contact";
+import { INQUIRY_TYPES, validateContact, type ContactErrors, type ContactPayload, type InquiryType } from "@/lib/contact";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -24,6 +24,10 @@ export default function ContactForm() {
   const [serverError, setServerError] = useState("");
 
   const defaultSubject = searchParams.get("subject")?.slice(0, 150) ?? "";
+  const requestedType = searchParams.get("type");
+  const defaultInquiryType: InquiryType = (INQUIRY_TYPES.some((t) => t.value === requestedType)
+    ? requestedType
+    : "general") as InquiryType;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -78,6 +82,28 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5" aria-describedby={serverError ? "form-error" : undefined}>
+      <div>
+        <label htmlFor="contact-inquiryType" className="text-sm font-medium text-navy-900">
+          What&apos;s this about?
+          <span className="text-accent-600" aria-hidden>
+            {" "}*
+          </span>
+        </label>
+        <select
+          id="contact-inquiryType"
+          name="inquiryType"
+          required
+          defaultValue={defaultInquiryType}
+          className={`${inputClasses} border-navy-900/15 focus:border-brand-500 focus:ring-brand-100`}
+        >
+          {INQUIRY_TYPES.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         {fields.map((field) => {
           const error = errors[field.name];
@@ -154,7 +180,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-accent-500 px-6 text-base font-semibold text-white shadow-sm shadow-accent-500/25 transition hover:-translate-y-0.5 hover:bg-accent-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 disabled:translate-y-0 disabled:opacity-70 sm:w-auto"
+        className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-accent-500 px-6 text-base font-semibold text-navy-900 shadow-sm shadow-accent-500/25 transition hover:-translate-y-0.5 hover:bg-accent-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 disabled:translate-y-0 disabled:opacity-70 sm:w-auto"
       >
         {status === "submitting" ? (
           <Loader2 className="h-5 w-5 animate-spin" aria-hidden />

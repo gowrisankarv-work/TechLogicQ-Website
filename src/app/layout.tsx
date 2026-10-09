@@ -1,16 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins } from "next/font/google";
 import RevealObserver from "@/components/RevealObserver";
 import { siteConfig } from "@/lib/site";
+import { montserrat } from "./fonts";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-poppins",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -23,7 +15,7 @@ export const metadata: Metadata = {
   keywords: [
     "TechLogicQ",
     "technical training",
-    "graduate training",
+    "student training",
     "web development services",
     "Java training",
     "full stack development",
@@ -37,7 +29,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: "/",
     locale: "en_US",
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "TechLogicQ – Where Technology Meets Logic" }],
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "TechLogicQ – Where Technology Meets Quality Logic" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -49,7 +41,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a1f4d",
+  themeColor: "#0A0F2C",
 };
 
 const organizationJsonLd = {
@@ -73,7 +65,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={montserrat.variable}>
       <body className="flex min-h-dvh flex-col antialiased">
         <script
           type="application/ld+json"
