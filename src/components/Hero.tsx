@@ -12,9 +12,19 @@ type HeroProps = {
   secondaryCta?: Cta;
   /** "home" shows the large split hero with illustration; "page" is a compact banner for inner pages. */
   variant?: "home" | "page";
+  /** Shows the "Technology . Logic . Quality" pillar line beneath the eyebrow. */
+  pillars?: boolean;
 };
 
-export default function Hero({ eyebrow, title, description, primaryCta, secondaryCta, variant = "page" }: HeroProps) {
+export default function Hero({
+  eyebrow,
+  title,
+  description,
+  primaryCta,
+  secondaryCta,
+  variant = "page",
+  pillars = false,
+}: HeroProps) {
   const isHome = variant === "home";
 
   return (
@@ -32,6 +42,16 @@ export default function Hero({ eyebrow, title, description, primaryCta, secondar
             <p className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-brand-700 sm:text-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-500" aria-hidden />
               {eyebrow}
+            </p>
+          )}
+          {pillars && (
+            <p
+              className={`mt-3 text-xs font-bold uppercase tracking-[0.2em] text-muted sm:text-sm ${
+                isHome ? "" : "mx-auto"
+              }`}
+            >
+              Technology<span className="text-technology">.</span> Logic<span className="text-logic">.</span> Quality
+              <span className="text-quality">.</span>
             </p>
           )}
           <h1

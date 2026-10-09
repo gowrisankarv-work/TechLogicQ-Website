@@ -1,14 +1,43 @@
 import CTASection from "@/components/CTASection";
+import FAQAccordion from "@/components/FAQAccordion";
 import Hero from "@/components/Hero";
+import JsonLd from "@/components/JsonLd";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
-import { services } from "@/data/content";
+import { servicesFaqs, services } from "@/data/content";
 import { pageMetadata } from "@/lib/metadata";
+import { contactHref, siteConfig } from "@/lib/site";
+
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Web and software development services",
+  provider: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+  areaServed: "IN",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "TechLogicQ Services",
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: service.title, description: service.description },
+    })),
+  },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: servicesFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 export const metadata = pageMetadata({
   title: "Web Development Services",
   description:
-    "Business websites, portfolios, landing pages, web applications, e-commerce, REST APIs, maintenance and custom software from TechLogicQ.",
+    "Business websites, portfolios, landing pages, web applications, e-commerce, ERP/CRM tools, digital marketing, web development and Android development from TechLogicQ.",
   path: "/services",
 });
 
@@ -21,11 +50,13 @@ const process = [
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={[servicesJsonLd, faqJsonLd]} />
+
       <Hero
         eyebrow="Web Development Services"
         title="Build Your Digital Presence"
         description="Modern, responsive and scalable websites and web applications for businesses, startups and professionals."
-        primaryCta={{ label: "Start a Project", href: "/contact?subject=New%20web%20project" }}
+        primaryCta={{ label: "Start a Project", href: contactHref("New web project", "services") }}
         secondaryCta={{ label: "View Services", href: "#services" }}
       />
 
@@ -59,10 +90,19 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader eyebrow="FAQ" title="Frequently Asked Questions" />
+          <div className="mt-12">
+            <FAQAccordion items={servicesFaqs} />
+          </div>
+        </div>
+      </section>
+
       <CTASection
         title="Have a project in mind? Let's build it together."
         description="Share a few details about what you need and we'll get back to you."
-        primaryCta={{ label: "Start a Project", href: "/contact?subject=New%20web%20project" }}
+        primaryCta={{ label: "Start a Project", href: contactHref("New web project", "services") }}
       />
     </>
   );

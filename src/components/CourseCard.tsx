@@ -38,7 +38,7 @@ export default function CourseCard({ title, description, topics, level, duration
           </dl>
 
           <ButtonLink
-            href={contactHref(`Course enquiry: ${title}`)}
+            href={contactHref(`Course enquiry: ${title}`, "training")}
             variant="primary"
             size="md"
             className="mt-6 w-full"

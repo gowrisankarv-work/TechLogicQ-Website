@@ -10,6 +10,7 @@ import SectionHeader from "@/components/SectionHeader";
 import LearnBuildGrow from "@/components/sections/LearnBuildGrow";
 import { courses } from "@/data/content";
 import { pageMetadata } from "@/lib/metadata";
+import { contactHref } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Academy",
@@ -26,7 +27,7 @@ export default function AcademyPage() {
         title="Learn. Practice. Build. Grow."
         description="The Academy provides practical, career-focused learning. Each course combines clear explanations with hands-on practice and projects, so you finish with skills you can show."
         primaryCta={{ label: "Browse Courses", href: "#courses" }}
-        secondaryCta={{ label: "Talk to Us", href: "/contact?subject=Academy%20enquiry" }}
+        secondaryCta={{ label: "Talk to Us", href: contactHref("Academy enquiry", "training") }}
       />
 
       <section id="courses" className="scroll-mt-24 py-16 sm:py-20">
@@ -49,7 +50,7 @@ export default function AcademyPage() {
       <CTASection
         title="Start learning with TechLogicQ"
         description="Have questions about a course or which path suits you? We're happy to help."
-        primaryCta={{ label: "Contact Us", href: "/contact?subject=Academy%20enquiry" }}
+        primaryCta={{ label: "Contact Us", href: contactHref("Academy enquiry", "training") }}
       />
     </>
   );

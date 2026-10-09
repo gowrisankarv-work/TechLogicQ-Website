@@ -14,7 +14,7 @@ type FeatureCardProps = {
 
 const accents = {
   blue: "bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
-  orange: "bg-accent-50 text-accent-600 group-hover:bg-accent-500 group-hover:text-white",
+  orange: "bg-accent-50 text-accent-600 group-hover:bg-accent-500 group-hover:text-navy-900",
   navy: "bg-navy-900/5 text-navy-900 group-hover:bg-navy-900 group-hover:text-white",
 };
 

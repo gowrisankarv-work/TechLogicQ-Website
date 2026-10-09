@@ -5,13 +5,15 @@ import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import LearnBuildGrow from "@/components/sections/LearnBuildGrow";
+import ProductsSection from "@/components/sections/ProductsSection";
+import TeamSection from "@/components/sections/TeamSection";
 import { aboutFocus, values } from "@/data/content";
 import { pageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "About Us",
-  description:
-    "TechLogicQ helps graduates bridge the gap between academic education and the professional technology industry through practical skills and real-world experience.",
+  description: siteConfig.description,
   path: "/about",
 });
 
@@ -20,8 +22,9 @@ export default function AboutPage() {
     <>
       <Hero
         eyebrow="About TechLogicQ"
-        title="Where Technology Meets Logic"
-        description="TechLogicQ is focused on helping graduates bridge the gap between academic education and the professional technology industry."
+        pillars
+        title="Where Technology Meets Quality Logic"
+        description={siteConfig.description}
       />
 
       <section className="py-16 sm:py-20">
@@ -29,7 +32,7 @@ export default function AboutPage() {
           <SectionHeader
             eyebrow="What We Focus On"
             title="From Classroom to Career"
-            description="We are an early-stage technology startup built around a simple idea: graduates learn best by doing. Here is where we put our energy."
+            description="We are an early-stage technology company built around a simple idea: students learn best by doing, and businesses need technology that works. Here is where we put our energy."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {aboutFocus.map((item, i) => (
@@ -48,8 +51,8 @@ export default function AboutPage() {
               </span>
               <h2 className="mt-5 text-2xl font-bold !text-white">Our Mission</h2>
               <p className="mt-3 text-lg leading-relaxed text-white/80">
-                To empower graduates with practical technology skills and real-world experience that help them
-                confidently enter the professional world.
+                To empower students with practical technology skills and real-world experience, and to help
+                businesses, institutions and organizations solve real-world problems with modern digital solutions.
               </p>
             </article>
           </Reveal>
@@ -78,6 +81,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <TeamSection />
+
+      <ProductsSection />
 
       <LearnBuildGrow />
 

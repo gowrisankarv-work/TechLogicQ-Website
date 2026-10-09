@@ -5,7 +5,7 @@ import SectionHeader from "../SectionHeader";
 const styles = [
   { card: "bg-brand-50 border-brand-100", icon: "bg-brand-600 text-white", step: "text-brand-600" },
   { card: "bg-navy-900 border-navy-900", icon: "bg-white text-navy-900", step: "text-brand-200" },
-  { card: "bg-accent-50 border-accent-400/30", icon: "bg-accent-500 text-white", step: "text-accent-600" },
+  { card: "bg-accent-50 border-accent-400/30", icon: "bg-accent-500 text-navy-900", step: "text-accent-600" },
 ];
 
 export default function LearnBuildGrow() {

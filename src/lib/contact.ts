@@ -1,7 +1,18 @@
+export const INQUIRY_TYPES = [
+  { value: "general", label: "General Enquiry" },
+  { value: "training", label: "Training" },
+  { value: "services", label: "Web & Software Services" },
+  { value: "product", label: "Product Demo" },
+  { value: "career", label: "Career Opportunity" },
+] as const;
+
+export type InquiryType = (typeof INQUIRY_TYPES)[number]["value"];
+
 export type ContactPayload = {
   name: string;
   email: string;
   phone: string;
+  inquiryType: InquiryType;
   subject: string;
   message: string;
 };
@@ -10,6 +21,7 @@ export type ContactErrors = Partial<Record<keyof ContactPayload, string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[+()\-\s\d]{7,20}$/;
+const VALID_INQUIRY_TYPES = new Set(INQUIRY_TYPES.map((t) => t.value));
 
 /** Shared validation for the contact form (client) and the contact API route (server). */
 export function validateContact(input: Partial<Record<keyof ContactPayload, unknown>>): {
@@ -17,10 +29,12 @@ export function validateContact(input: Partial<Record<keyof ContactPayload, unkn
   errors: ContactErrors;
 } {
   const str = (v: unknown) => (typeof v === "string" ? v.trim() : "");
+  const rawInquiryType = str(input.inquiryType);
   const data: ContactPayload = {
     name: str(input.name).slice(0, 100),
     email: str(input.email).slice(0, 200),
     phone: str(input.phone).slice(0, 20),
+    inquiryType: (VALID_INQUIRY_TYPES.has(rawInquiryType as InquiryType) ? rawInquiryType : "general") as InquiryType,
     subject: str(input.subject).slice(0, 150),
     message: str(input.message).slice(0, 5000),
   };

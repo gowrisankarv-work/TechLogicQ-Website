@@ -1,29 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-950: #061634;
-  --color-navy-900: #0a1f4d;
-  --color-navy-800: #0f2d6b;
-  --color-navy-700: #173c85;
+  --color-navy-950: #05091c;
+  --color-navy-900: #0a0f2c;
+  --color-navy-800: #121a3f;
+  --color-navy-700: #1b2654;
 
-  --color-brand-50: #eef5ff;
-  --color-brand-100: #d9e8ff;
-  --color-brand-200: #b5d2ff;
-  --color-brand-500: #1e7bf2;
-  --color-brand-600: #1565d8;
-  --color-brand-700: #0f4fb0;
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #0ea5e9;
+  --color-brand-600: #0278b8;
+  --color-brand-700: #0369a1;
 
-  --color-accent-50: #fff4e6;
-  --color-accent-400: #ffa033;
-  --color-accent-500: #ff8a00;
-  --color-accent-600: #ea6c00;
+  --color-accent-50: #ecfeff;
+  --color-accent-400: #67e8f9;
+  --color-accent-500: #22d3ee;
+  --color-accent-600: #06b6d4;
 
-  --color-surface: #f5f8fc;
-  --color-ink: #1c2a44;
-  --color-muted: #55627a;
+  --color-technology: #6366f1;
+  --color-logic: #0ea5e9;
+  --color-quality: #22d3ee;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-poppins), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-surface: #f4f6fb;
+  --color-ink: #0a0f2c;
+  --color-muted: #64748b;
+
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 
   --animate-fade-up: fade-up 0.7s ease-out both;
 

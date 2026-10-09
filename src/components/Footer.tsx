@@ -7,8 +7,14 @@ import SocialIcon from "./SocialIcon";
 const offerings = [
   { label: "Technical Training", href: "/training" },
   { label: "Web Development", href: "/services" },
+  { label: "Our Products", href: "/products" },
   // { label: "Academy Courses", href: "/academy" }, // Academy page hidden for now
   { label: "Job Openings", href: "/careers" },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
 ];
 
 export default function Footer() {
@@ -18,7 +24,7 @@ export default function Footer() {
         <div>
           <Logo tone="light" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed">
-            {siteConfig.tagline}. Helping graduates learn, build and grow into the professional world.
+            {siteConfig.tagline}. Helping students learn, build and grow, and helping businesses build better technology.
           </p>
           <p className="mt-4 text-sm font-semibold tracking-wide text-white">
             Learn <span className="text-accent-500">•</span> Build <span className="text-accent-500">•</span> Grow
@@ -79,7 +85,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`TechLogicQ on ${s.name}`}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-accent-500"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-accent-500 hover:text-navy-900"
                 >
                   <SocialIcon name={s.name} />
                 </a>
@@ -89,8 +95,17 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} TechLogicQ. All rights reserved.</p>
+          <ul className="flex gap-4">
+            {legalLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="transition-colors hover:text-white">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <p>#TechLogicQ · #TechTraining · #WebDevelopment · #CareerGrowth</p>
         </div>
       </div>

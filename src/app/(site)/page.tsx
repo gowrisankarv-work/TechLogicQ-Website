@@ -6,6 +6,7 @@ import FeatureCard from "@/components/FeatureCard";
 import Hero from "@/components/Hero";
 import SectionHeader from "@/components/SectionHeader";
 import LearnBuildGrow from "@/components/sections/LearnBuildGrow";
+import ProductsSection from "@/components/sections/ProductsSection";
 import SocialSection from "@/components/sections/SocialSection";
 import WhyTechLogicQ from "@/components/sections/WhyTechLogicQ";
 import { coreOfferings } from "@/data/content";
@@ -25,14 +26,15 @@ export default function HomePage() {
     <>
       <Hero
         variant="home"
-        eyebrow="Where Technology Meets Logic"
+        eyebrow="Where Technology Meets Quality Logic"
+        pillars
         title={
           <>
-            Empowering <span className="text-brand-600">Graduates</span>
-            <br className="hidden sm:block" /> for the Professional World
+            Building Skills, Creating <span className="text-brand-600">Technology</span>,
+            <br className="hidden sm:block" /> Shaping the Future
           </>
         }
-        description="At TechLogicQ, we help graduates gain industry-ready skills through practical training, hands-on projects, career-focused learning, and real-world technology experience."
+        description={siteConfig.description}
         primaryCta={{ label: "Start Learning", href: "/training" }}
         secondaryCta={{ label: "Explore Our Services", href: "/services" }}
       />
@@ -41,8 +43,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="What We Do"
-            title="Helping Graduates Learn, Build and Grow"
-            description="Training, projects, web development and career updates, all in one place."
+            title="For Students and Businesses Alike"
+            description="Practical training and career support for students, and modern digital solutions for businesses, institutions and organizations."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {coreOfferings.map((item, i) => (
@@ -53,6 +55,8 @@ export default function HomePage() {
       </section>
 
       <LearnBuildGrow />
+
+      <ProductsSection />
 
       <WhyTechLogicQ />
 
